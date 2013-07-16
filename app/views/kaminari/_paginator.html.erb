@@ -6,8 +6,12 @@
     remote:        data-remote
     paginator:     the paginator that renders the pagination tags inside
 -%>
+<%
+html ||= {}
+klass = ['pagination', html[:class]].compact.join ' '
+-%>
 <%= paginator.render do -%>
-  <nav class="pagination">
+  <nav class="<%= klass %>">
     <ul>
       <%= first_page_tag unless current_page.first? %>
       <%= prev_page_tag unless current_page.first? %>
